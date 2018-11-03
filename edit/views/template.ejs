@@ -1,7 +1,19 @@
 <html>
   <head>
+    <script>
+      function getColor(){
+        var x = document.getElementById("col").value;
+        document.getElementById("base").style.background = x;
+        console.log(x);
+      }
+    </script>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" rel="stylesheet">
   </head>
   <body>
-    <center><strong>HELLO!</strong></center>
+    <div class="container">
+    <div class="container" id="base" style="background-color:black;height:400px;width:400px">
+    </div>
+  </div><br>
+    <input id="col" type="color"><button onclick="getColor()">Next</button>
   </body>
 </html>
