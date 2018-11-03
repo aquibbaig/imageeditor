@@ -6,23 +6,51 @@
         document.getElementById("base").style.background = x;
         console.log(x);
       }
+
+
+    </script>
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <script>
+    $( function() {
+      $( "#draggable" ).draggable();
+      $( "#droppable" ).droppable({
+        drop: function( event, ui ) {
+          $( this )
+          .addClass( "ui-state-highlight" )
+          .find( "p" )
+            .html( "Dropped!" );
+          }
+        });
+      } );
+    </script>
+    <script>
+      $(document).ready(function(){
+        $("#source img").click(function() {
+          var src = $(this).attr("src")
+          $("#target ").attr("src", src)
+        })
+      })
+
     </script>
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" rel="stylesheet">
   </head>
   <body>
-    <div class="container-fluid">
-    <div class="row">
-    <div class="col-lg-4" id="main">
-      <div id="base" style="background-color:black;height:400px;width:400px;">
+    <div class="container">
+    <div class="container"  id="base" id="droppable" style="background-color:black;height:400px;width:400px">
+      <img id= "target" src = "" height = "350" width="350" >
+    </div>
+  </div><br>
+    <input id="col" type="color"><button onclick="getColor()">Apply</button>
+    <div>
+      <% var imgData = ["templateBackgrounds/png1.png", "templateBackgrounds/png2.png", "templateBackgrounds/png3.png"]; %>
+      <% for( var i = 0; i < imgData.length; i++) { %>
+        <div id = "source">
+        <img src = "<%= imgData[i] %>" height = "350" width = "350"  >
       </div>
+      <% } %>
     </div>
-    <br>
-    <div class="col-lg-2">
-    </div>
-    <div class="col-lg-6" style="background-color:grey" style="height:1000px">
-    <strong>1.SELECT COLOR:</strong> &nbsp<input id="col" type="color"><button onclick="getColor()">Next</button>
-    </div>
-    </div>
-    </div>
+
+
   </body>
 </html>
