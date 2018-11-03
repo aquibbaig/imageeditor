@@ -10,4 +10,8 @@ router.get('/create', function(req, res, next) {
   res.render('template');
 });
 
+router.get('/drag', function (req, res, next) {
+  res.render('drag')
+})
+
 module.exports = router;
